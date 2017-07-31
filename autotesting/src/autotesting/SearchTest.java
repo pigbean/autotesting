@@ -28,17 +28,25 @@ public class SearchTest
     }
  
     @Test
-    public void TC0000() throws Exception
+    public void TC0000() throws Exception // 검증 사이트 접속
     {
         driver.get("http://www.naver.com");	// 기본 사이트 주소
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
  
     @Test
-    public void TC0001() throws Exception
+    public void TC0001() throws Exception // 메일 메뉴 접속
     {
     	//driver.findElement(By.xpath(".//div[@className='disaster-popup']/close")).click();
-    	driver.findElement(By.className("more")).click();
+    	//driver.findElement(By.className("more")).click();
+    	driver.findElement(By.linkText("메일")).click();
+    }
+    
+    @Test
+    public void TC0002() throws Exception // RNB 메뉴 로그인 버튼 선택
+    {
+    	//driver.findElement(By.xpath(".//div[@className='disaster-popup']/close")).click();
+    	driver.findElement(By.className("btn_login")).click();
     }
  
     
