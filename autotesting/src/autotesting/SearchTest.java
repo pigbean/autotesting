@@ -30,7 +30,7 @@ public class SearchTest
     @Test
     public void TC0000() throws Exception
     {
-        driver.get("http://dplus.kbs.co.kr/publish/static_june/pc/html/drama/section.html");	// 기본 사이트 주소
+        driver.get("http://www.naver.com");	// 기본 사이트 주소
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
  
