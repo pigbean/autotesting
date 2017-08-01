@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.junit.runners.MethodSorters;
  
@@ -28,14 +29,14 @@ public class SearchTest
     }
  
     @Test
-    public void TC0000() throws Exception // 검증 사이트 접속
+    public void TC0001() throws Exception // 검증 사이트 접속
     {
         driver.get("http://www.naver.com");	// 기본 사이트 주소
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
  
     @Test
-    public void TC0001() throws Exception // 메일 메뉴 접속
+    public void TC0002() throws Exception // 메일 메뉴 접속
     {
     	//driver.findElement(By.xpath(".//div[@className='disaster-popup']/close")).click();
     	//driver.findElement(By.className("more")).click();
@@ -43,12 +44,39 @@ public class SearchTest
     }
     
     @Test
-    public void TC0002() throws Exception // RNB 메뉴 로그인 버튼 선택
+    public void TC0003() throws Exception // RNB 메뉴 로그인 버튼 선택
     {
     	//driver.findElement(By.xpath(".//div[@className='disaster-popup']/close")).click();
     	driver.findElement(By.className("btn_login")).click();
     }
+    
+    @Test
+    public void TC0004() throws Exception // 아이디 입력
+    {
+       	driver.findElement(By.id("id")).sendKeys("LoginID");
+
+    }
  
+    @Test
+    public void TC0005() throws Exception // 비밀번호 미입력
+    {
+    	driver.findElement(By.id("pw")).sendKeys("");
+    }
+    
+    @Test
+    public void TC0006() throws Exception // 로그인 버튼 클릭
+    {
+    	driver.findElement(By.className("btn_global")).click();
+    }
+    
+    @Test
+    public void TC0007() throws Exception // 비밀번호 입력 가이드 문구 확인 (아직 작업중)
+    {
+    	//driver.findElement(By.id("err_empty_pw")).equals("비밀번호를 입력해주세요.");
+    	//String GuideText = driver.findElement(By.id("err_empty_pw"));
+    	System.out.println(driver.findElement(By.id("err_empty_pw")));
+    	//GuideText.equals("비밀번호를 입력해주세요.");
+    }	
     
     @AfterClass
     public static void tearDown() throws Exception
