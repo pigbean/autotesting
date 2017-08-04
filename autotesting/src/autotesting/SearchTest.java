@@ -69,14 +69,26 @@ public class SearchTest
     	driver.findElement(By.className("btn_global")).click();
     }
     
-    @Test // 비밀번호 입력 가이드 문구 확인 (아직 작업중)
-    public void TC0007() throws Exception 
+    @Test // 비밀번호 입력 가이드 문구 확인
+    public void TC0007() throws Exception
     {
-    	//driver.findElement(By.id("err_empty_pw")).equals("비밀번호를 입력해주세요.");
-    	//String GuideText = driver.findElement(By.id("err_empty_pw"));
-    	//String ErrorGuideText = getText(driver.findElement(By.id("err_empty_pw")));
-    	//GuideText.equals("비밀번호를 입력해주세요.");
+    	String ErrorPassText = driver.findElement(By.id("err_empty_pw")).getText();
+    	System.out.println(ErrorPassText.equalsIgnoreCase("비밀번호를 입력해주세요.!!"));
+    	if (ErrorPassText.equalsIgnoreCase("비밀번호를 입력해주세요")!=true)
+    	{
+    		throw new Exception();
+        }
+    	
     }	
+    
+    @Test // 로그인 상태 유지 클릭
+    public void TC0008() throws Exception
+    {
+    	driver.findElement(By.id("label_login_chk")).click();
+    	//String bhc = driver.findElement(By.id("label_login_chk")).getAttribute();
+    	//System.out.println(bhc);
+    	
+    }
     
     @AfterClass
     public static void tearDown() throws Exception
